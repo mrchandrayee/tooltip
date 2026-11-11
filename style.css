@@ -1,0 +1,58 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0d0d0f;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .social-row { display: flex; gap: 16px; }
+
+  .btn {
+    position: relative;
+    width: 52px; height: 52px;
+    border: none; border-radius: 14px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease;
+    background: #1a1a1f;
+    color: #fff;
+  }
+  .btn svg { width: 22px; height: 22px; fill: currentColor; transition: transform 0.25s ease; }
+
+  .btn:hover { transform: translateY(-6px) scale(1.08); }
+  .btn:hover svg { transform: scale(1.15); }
+  .btn:active { transform: translateY(-2px) scale(1.02); }
+
+  /* Per-brand colors */
+  .btn.twitter:hover  { background: #1d9bf0; box-shadow: 0 12px 28px #1d9bf055; }
+  .btn.github:hover   { background: #f0f6fc; color: #0d0d0f; box-shadow: 0 12px 28px #f0f6fc33; }
+  .btn.linkedin:hover { background: #0a66c2; box-shadow: 0 12px 28px #0a66c255; }
+  .btn.instagram:hover{ background: #e1306c; box-shadow: 0 12px 28px #e1306c55; }
+  .btn.youtube:hover  { background: #ff0000; box-shadow: 0 12px 28px #ff000055; }
+
+  /* Tooltip */
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%; transform: translateX(-50%) translateY(6px) scale(0.88);
+    background: #fff; color: #0d0d0f;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    white-space: nowrap;
+    padding: 5px 12px; border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.25s cubic-bezier(.34,1.56,.64,1);
+  }
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%; transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #fff;
+  }
+  .btn:hover .tooltip { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+</style>
